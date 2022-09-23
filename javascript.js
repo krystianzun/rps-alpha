@@ -1,14 +1,14 @@
-const btn = document.querySelector('button');
+let theParent = document.querySelector("#symbol");
 const txt = document.querySelector('p');
 
-btn.addEventListener('click', updateBtn);
+theParent.addEventListener("click", doSomething, false);
 
-function updateBtn() {
-  if (btn.textContent === 'Start machine') {
-    btn.textContent = 'Stop machine';
+function doSomething(e) {
+  if (e.target !== e.currentTarget) {
+    let clickedItem = e.target.id;
+
     txt.textContent = 'The machine has started!';
-  } else {
-    btn.textContent = 'Start machine';
-    txt.textContent = 'The machine is stopped.';
+
   }
+  e.stopPropagation(); 
 }
